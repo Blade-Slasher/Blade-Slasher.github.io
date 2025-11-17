@@ -1,0 +1,367 @@
+!DOCTYPE html
+html lang=en
+head
+  meta charset=UTF-8
+  meta name=viewport content=width=device-width, initial-scale=1.0
+  titleGymTrackertitle
+
+  link rel=manifest href=dataapplicationjson;base64,eyJuYW1lIjoiUHJvZ3Jlc3NpdmUgT3ZlcmxvYWQgR3ltIFRyYWNrZXIiLCJzaG9ydF9uYW1lIjoiR3ltVHJhY2tlciIsImRlc2NyaXB0aW9uIjoiQW4gb2ZmbGluZS1maXJzdCBneW0gdHJhY2tlciBmb3IgcHJvZ3Jlc3NpdmUgb3ZlcmxvYWQuIiwic3RhcnRfdXJsIjoiLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZfY29sb3IiOiIjMTIxMjEyIiwidGhlbWVfY29xIiOiIjMWU4OGU1IiLCaWNvbnMiOlt7InNyYyI6Imljb25zL2ljb24tMTkyeDE5Mi5wbmciLCJzaXplcyI6IjE5MngMTkyIiwidHlwZSI6ImltYWdlL3BuZyJ9LHsic3JjI6Imljb25zL2ljb24tNTEyeDUxMi5wbmciLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn1dfQ==
+  
+  meta name=theme-color content=#1e88e5
+
+  style
+     Mobile-First Default Styles 
+    body {
+      font-family -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+      margin 0;
+      background-color #121212;
+      color #f4f4f4;
+      line-height 1.6;
+    }
+    #app {
+      display flex;
+      flex-direction column;
+      min-height 100vh;
+      max-width 800px;
+      margin 0 auto;
+    }
+    header {
+      background #1e88e5;
+      color white;
+      padding 1rem;
+      text-align center;
+    }
+    main {
+      flex-grow 1;
+      padding 1rem;
+    }
+     Flexible Grid for workout layout 
+   .workout-grid {
+      display grid;
+      grid-template-columns 1fr;  Single column on mobile 
+      gap 1rem;
+      padding 1rem;
+    }
+    button {
+      background #1e88e5;
+      color white;
+      border none;
+      padding 0.75rem 1.5rem;
+      border-radius 4px;
+      cursor pointer;
+      font-size 1rem;
+      margin 0.5rem;
+    }
+    buttonhover {
+      opacity 0.8;
+    }
+     Media Query to scale UP 
+    @media (min-width 600px) {
+     .workout-grid {
+        grid-template-columns 1fr 1fr;  Two columns on larger screens 
+      }
+    }
+  style
+head
+body
+
+  div id=app
+    header
+      h1Progressive Overload Trackerh1
+    header
+    main
+      h2Welcomeh2
+      pThis is your offline-first, all-in-one PWA.p
+      
+      h3Data Managementh3
+      button id=backup-btnGenerate Backupbutton
+      input type=file id=restore-input accept=applicationjson style=display none;
+      button id=restore-btnRestore from Backupbutton
+
+      div id=statusdiv
+    main
+  div
+
+  script
+     Full minified source code from Appendix B 
+   !function(e,t){object==typeof exports&&undefined!=typeof modulet(exports)function==typeof define&&define.amddefine([exports],t)t((e=eself).idb=e.idb{})}(this,function(e){use strict;let t,n;const r=new WeakMap,o=new WeakMap,i=new WeakMap,s=new WeakMap,a=new WeakMap;function c(e){return new Promise((t,n)={t=t.bind(t,e),n=n.bind(n,e)})}function l(e){return e.openDB=function(e,t,{blockedi,upgradea,blockingl,terminatedu}={}){const d=indexedDB.open(e,t);d.onupgradeneeded=e={a&&a(d.result,e.oldVersion,e.newVersion,d.transaction,e)},d.onsuccess=()={const e=d.result;e.onversionchange=e={l&&l(e.oldVersion,e.newVersion,e)},e.onclose=()={u&&u()}},i&&(d.onblocked=e=i(e.oldVersion,e.newVersion,e));const p=c(d);return p.then(e=function(e){return r.get(e)(t(t=new Proxy({},{get(e,t,r)=t in IDBDatabase.prototypefunction==typeof IDBDatabase.prototype[t]function(){return IDBDatabase.prototype[t].apply(this,arguments)}this[t]void 0})),n(n=),r.set(e,new Proxy(e,{get(e,t,r)=f(e,t)object==typeof e[t]&&e[t](transaction===tfunction(){return e.transaction.apply(e,arguments)}e[t])e[t],has(e,t,r)=t in en.some(e=t in e),set(e,t,n,r)=(e[t]=n,!0)})),r.get(e))}(e)).catch(e=function(e,t){const n=e.target.error;DataCloneError!==n.name&&AbortError!==n.name&&t(n)}(e,p.abort))},e.deleteDB=function(e,{blockedt}={}){const n=indexedDB.deleteDatabase(e);t&&(n.onblocked=e=t(e.oldVersion,e));const r=c(n);return r.then(()=void 0).catch(e=function(e,t){const n=e.target.error;AbortError!==n.name&&t(n)}(e,r.abort))},e.unwrap=function(e){return o.get(e)},e.wrap=function(e){return a.get(e)},e}const u=(e,t)=!tt.some(t=e instanceof t);function d(e,t,n){const r=new IDBRequest;return r.source=t,r.transaction=n,e.then(e={r.result=e,dispatchEvent.call(r,new Event(success))},e={r.error=e,dispatchEvent.call(r,new Event(error))}),r}function p(e,t,n,r={}){const i=r;if(i)return i.call(r);const s={};let a;for(const[e,t]of Object.entries(r))t.includes(Bound)(a=anew WeakMap,a.set(s,a.get(r)),s[e]=t.replace(Bound,))s[e]=t;const c=Object.getPrototypeOf(r),l={get(e,n,r)={if(n===Symbol.asyncIterator)return()=function(e,t,n){if(e.iterator)return e.iterator;let r=e.value;const o=new Promise(e={e.continue=e}),i={next()=(roPromise.resolve(rr.valuevoid 0)).then(i={if(!e.done)return t(rre,o,i)})};return i.value=()=i.next().then(e=e.value),i.done=()=i.next().then(e=e.done),e.iterator=i,i}(valuein e{valuee.value,donee.done}Object.assign(e.next(),{valuevoid 0,done!1}),(e,r,i)={const s=t(e,i);e.value=s,e.valueObject.assign(e,e.value.value{valuee.value,done!1}{valuevoid 0,done!0})Object.assign(e,{valuevoid 0,done!0}),e.dones.continue(e.iterator=void 0,r())},{valuee.value,donee.done});if(n.includes(n))return(...t)=p(e,n,r,t);const s=f(c,n);return sse[n]},has(e,t,n)=t in e(f(c,t)!0!1),set(e,t,n,r)=!0};return new Proxy(e,l)}function f(e,t){returnfunction==typeof e[t]function(){return e[t].apply(this,arguments)}e[t]}function h(e,t,n){e.prototype[t]=function(...t){return p(this,this[n].apply(this,t))}}function b(e,t,n){e.prototype[t]=function(...t){return p(this,d(this[n].apply(this,t),this.source,this.transaction))}}function g(e,t,n,r){e.prototype[t]=function(...e){return p(this,this[n].apply(this,e),r)}}function v(e,t,n){o.set(n,e),a.set(e,n)}l(e);const m=e=function==typeof e;e.openDB=e.openDB,e.deleteDB=e.deleteDB,e.unwrap=e.unwrap,e.wrap=e.wrap,Object.defineProperty(e,__esModule,{value!0});const y=[advance,continue,continuePrimaryKey,delete,update];function D(e){return i.get(e)(t(t=new Proxy({},{get(e,t,r)=t in IDBCursor.prototypefunction==typeof IDBCursor.prototype[t]function(){return IDBCursor.prototype[t].apply(this,arguments)}this[t]void 0})),n(n=),i.set(e,new Proxy(e,{get(e,t,r)={for(const n of y)if(t===n)return(...t)=e[n].apply(e,t);return f(e,t)object==typeof e[t]&&e[t]e[t]e[t]},has(e,t,r)=t in en.some(e=t in e),set(e,t,n,r)=(e[t]=n,!0)}))),i.get(e)}g(IDBCursor,map,function(e){return new IDBCursor(this,e)}),g(IDBCursor,filter,function(e){return new IDBCursor(this,e)}),function(e){return b(e,value,function(){return this.value}),b(e,key,function(){return this.key}),b(e,primaryKey,function(){return this.primaryKey}),e}(IDBCursor),function(e,t,n){return e.prototype[t]=function(e){return p(this,d(this[n](e),this,this.transaction),{valuee})},e}(IDBCursor,each,function(e){return new IDBCursor(this,t={e(D(t))})}),g(IDBCursor,next,function e(t,n){return(nadvancecontinue).call(this,t),p(this,void 0,{valuen})}),g(IDBObjectStore,index,function(e){return new IDBIndex(this,e)}),b(IDBObjectStore,count),b(IDBObjectStore,get),b(IDBObjectStore,getKey),b(IDBObjectStore,getAll),b(IDBObjectStore,getAllKeys),b(IDBObjectStore,add),b(IDBObjectStore,put),b(IDBObjectStore,delete),b(IDBObjectStore,clear),h(IDBObjectStore,openCursor,function(e,t){return new IDBCursor(this,e,t)}),h(IDBObjectStore,openKeyCursor,function(e,t){return new IDBCursor(this,e,t,1)}),g(IDBObjectStore,iterate,function(e,t){return new IDBCursor(this,e,t).each}),b(IDBIndex,count),b(IDBIndex,get),b(IDBIndex,getKey),b(IDBIndex,getAll),b(IDBIndex,getAllKeys),h(IDBIndex,openCursor,function(e,t){return new IDBCursor(this,e,t)}),h(IDBIndex,openKeyCursor,function(e,t){return new IDBCursor(this,e,t,1)}),g(IDBIndex,iterate,function(e,t){return new IDBCursor(this,e,t).each}),function(e){return e.prototype.get=function(e){return this.objectStore(readonly).get(e)},e.prototype.getAll=function(e,t){return this.objectStore(readonly).getAll(e,t)},e.prototype.add=function(e,t){return this.objectStore(readwrite).add(e,t)},e.prototype.put=function(e,t){return this.objectStore(readwrite).put(e,t)},e.prototype.delete=function(e){return this.objectStore(readwrite).delete(e)},e.prototype.clear=function(){return this.objectStore(readwrite).clear()},e}(IDBDatabase),b(IDBTransaction,abort),b(IDBTransaction,commit),g(IDBTransaction,objectStore,function(e){return new IDBObjectStore(this,e)}),b(IDBRequest,result),b(IDBRequest,error),b(IDBRequest,source),b(IDBRequest,transaction),b(IDBRequest,done,function(){return Promise.all([this,this.transaction]).then(([e,t])=(readonly===t.modePromise.resolve()t.done).then(()=e.result))})});
+  script
+
+  script type=module
+     --- 5.1 INLINED SERVICE WORKER (from Section 1.4) ---
+    const swSourceCode = `
+      const CACHE_NAME = 'gym-tracker-v1';
+       Modified ASSETS_TO_CACHE (from Section 1.5)
+      const ASSETS_TO_CACHE = ['']; 
+
+      self.addEventListener('install', (event) = {
+        event.waitUntil(
+          caches.open(CACHE_NAME).then((cache) = {
+            console.log('Service Worker Caching App Shell');
+            return cache.addAll(ASSETS_TO_CACHE);
+          })
+        );
+        self.skipWaiting();
+      });
+
+      self.addEventListener('activate', (event) = {
+        event.waitUntil(
+          caches.keys().then((keyList) = {
+            return Promise.all(keyList.map((key) = {
+              if (key!== CACHE_NAME) {
+                console.log('Service Worker Deleting old cache', key);
+                return caches.delete(key);
+              }
+            }));
+          })
+        );
+        return self.clients.claim();
+      });
+
+      self.addEventListener('fetch', (event) = {
+         Cache-First Strategy
+        event.respondWith(
+          caches.match(event.request).then((response) = {
+             Return from cache if found
+            if (response) {
+              return response;
+            }
+             Fallback to network
+            return fetch(event.request); 
+          })
+        );
+      });
+    `;
+
+     --- 5.2 DB.JS LOGIC (v2 Schema, from Section 2.5) ---
+    const DB_NAME = 'gym-tracker-db';
+    const DB_VERSION = 2;  Using v2 schema
+    let dbInstance;
+
+    async function openDb() {
+      if (dbInstance) return dbInstance;
+      
+      dbInstance = await idb.openDB(DB_NAME, DB_VERSION, {
+        upgrade(db, oldVersion, newVersion, transaction) {
+          console.log(`Upgrading DB from v${oldVersion} to v${newVersion}`);
+          
+           v1 Schema (for brand new users, this will run, then v2)
+          if (oldVersion  1) {
+            if (!db.objectStoreNames.contains('UserProfile')) {
+              db.createObjectStore('UserProfile', { keyPath 'id' });
+            }
+            if (!db.objectStoreNames.contains('Exercises')) {
+              const exercisesStore = db.createObjectStore('Exercises', { keyPath 'id' });
+              exercisesStore.createIndex('dayName', 'dayName', { unique false });
+            }
+            if (!db.objectStoreNames.contains('ProgressionState')) {
+              db.createObjectStore('ProgressionState', { keyPath 'exerciseId' });
+            }
+            if (!db.objectStoreNames.contains('WorkoutHistory')) {
+              const historyStore = db.createObjectStore('WorkoutHistory', {
+                keyPath 'id',
+                autoIncrement true,
+              });
+              historyStore.createIndex('sessionId', 'sessionId');
+              historyStore.createIndex('exerciseId', 'exerciseId');
+              historyStore.createIndex('timestamp', 'timestamp');
+            }
+            if (!db.objectStoreNames.contains('BodyMeasurements')) {
+              const measurementsStore = db.createObjectStore('BodyMeasurements', {
+                keyPath 'id',
+                autoIncrement true,
+              });
+              measurementsStore.createIndex('timestamp', 'timestamp');
+            }
+          }
+
+            THIS IS THE v2 MIGRATION 
+          if (oldVersion  2) {
+             1. Create new v2 stores
+            if (!db.objectStoreNames.contains('ExerciseDefinitions')) {
+              const defStore = db.createObjectStore('ExerciseDefinitions', { keyPath 'id', autoIncrement true });
+              defStore.createIndex('name', 'name');
+            }
+            if (!db.objectStoreNames.contains('WorkoutTemplates')) {
+              db.createObjectStore('WorkoutTemplates', { keyPath 'id', autoIncrement true });
+               We could add an index on 'name' if we search by it
+            }
+            
+             2. RenameReplace WorkoutHistory with WorkoutLogs
+            if (db.objectStoreNames.contains('WorkoutHistory')) {
+               console.log(Deleting old v1 store WorkoutHistory);
+               db.deleteObjectStore('WorkoutHistory');
+            }
+            if (!db.objectStoreNames.contains('WorkoutLogs')) {
+               const logStore = db.createObjectStore('WorkoutLogs', { keyPath 'id', autoIncrement true });
+               logStore.createIndex('exerciseDefId', 'exerciseDefId');
+               logStore.createIndex('timestamp', 'timestamp');
+               logStore.createIndex('sessionId', 'sessionId');
+            }
+            
+             3. Delete old v1 stores and recreate ProgressionState
+            if (db.objectStoreNames.contains('Exercises')) {
+               console.log(Deleting old v1 store Exercises);
+               db.deleteObjectStore('Exercises');
+            }
+            if (db.objectStoreNames.contains('ProgressionState')) {
+               console.log(Re-creating ProgressionState for v2);
+               db.deleteObjectStore('ProgressionState');
+               db.createObjectStore('ProgressionState', { keyPath 'exerciseDefId' });
+            }
+          }
+        },
+      });
+      return dbInstance;
+    }
+    
+     --- 5.3 APP.JS LOGIC (v2 compatible) ---
+
+     Service Worker Registration (from Section 1.4)
+    function registerServiceWorker() {
+      if ('serviceWorker' in navigator) {
+        try {
+          const swBlob = new Blob(, { type 'applicationjavascript' });
+          const swUrl = URL.createObjectURL(swBlob);
+
+          navigator.serviceWorker.register(swUrl, { scope '' })
+           .then(reg = console.log('Service Worker registered from Blob', reg))
+           .catch(err = console.error('Service Worker Blob registration failed', err));
+
+        } catch (err) {
+          console.error('Failed to create Service Worker Blob', err);
+        }
+      }
+    }
+
+     Backup Function (from Section 4.1)
+    async function generateBackupFile() {
+      try {
+        console.log('Generating backup file...');
+        const db = await openDb();
+        
+        const allStoreNames = Array.from(db.objectStoreNames);
+        const backupData = {
+          backup_timestamp new Date().toISOString(),
+          app_version v2.0
+        };
+
+        for (const storeName of allStoreNames) {
+          backupData[storeName] = await db.getAll(storeName);
+        }
+
+        const jsonString = JSON.stringify(backupData, null, 2);
+        const blob = new Blob(, { type 'applicationjson' });
+        const url = URL.createObjectURL(blob);
+        const filename = `gym_backup_${new Date().toISOString().split('T')}.json`;
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        console.log('Backup successful.');
+        document.getElementById('status').textContent = `Backup ${filename} saved.`;
+      } catch (err) {
+        console.error('Backup failed', err);
+        document.getElementById('status').textContent = 'Backup failed.';
+      }
+    }
+
+     Atomic Restore Function (from Section 4.2)
+    async function restoreFromBackup(file) {
+      try {
+        const jsonString = await file.text();
+        const backupData = JSON.parse(jsonString);
+
+        if (!backupData !backupData.backup_timestamp) {
+          alert('Invalid backup file.');
+          return;
+        }
+
+        if (!confirm('This will permanently overwrite all current data. Are you sure')) {
+          return;
+        }
+
+        const db = await openDb();
+        const allStoreNames = Array.from(db.objectStoreNames);
+        
+        console.log('Starting atomic restore...');
+        const tx = db.transaction(allStoreNames, 'readwrite');
+        
+        console.log('Clearing all data...');
+        const clearPromises =;
+        for (const storeName of allStoreNames) {
+          clearPromises.push(tx.objectStore(storeName).clear());
+        }
+        await Promise.all(clearPromises);
+        
+        console.log('Populating all stores from backup...');
+        const putPromises =;
+        const v2Stores =;
+
+        for (const storeName of v2Stores) {
+          if (backupData[storeName] && Array.isArray(backupData[storeName])) {
+            for (const item of backupData[storeName]) {
+               Use 'put' to restore data
+              putPromises.push(tx.objectStore(storeName).put(item));
+            }
+          }
+        }
+        await Promise.all(putPromises);
+        
+        await tx.done;
+        
+        alert('Restore successful! The app will now reload.');
+        location.reload();
+
+      } catch (err) {
+        console.error('Atomic restore failed', err);
+        alert('Restore failed. Your data has not been changed.');
+      }
+    }
+
+     Main App Initialization
+    function initializeApp() {
+      console.log('App Initializing...');
+      
+       1. Register the SW
+      registerServiceWorker();
+
+       2. Wire up UI
+      document.getElementById('backup-btn').addEventListener('click', generateBackupFile);
+      
+      document.getElementById('restore-btn').addEventListener('click', () = {
+        document.getElementById('restore-input').click();
+      });
+      
+      document.getElementById('restore-input').addEventListener('change', (event) = {
+        const file = event.target.files;
+        if (file) {
+          restoreFromBackup(file);
+        }
+      });
+      
+       3. Connect to DB and load UI
+      openDb().then(db = {
+        console.log('Database v2 connection successful.');
+        document.getElementById('status').textContent = 'App ready. DB v2 connected.';
+         This is where the Blank Slate UI would be rendered
+         (See Section 3.1)
+      }).catch(err = {
+        console.error('Failed to open DB', err);
+        document.getElementById('status').textContent = 'Error Could not load database.';
+      });
+    }
+
+     --- 5.4 START THE APP ---
+     This listener ensures all HTML is loaded before scripts run
+    window.addEventListener('load', initializeApp);
+  script
+
+body
+html
